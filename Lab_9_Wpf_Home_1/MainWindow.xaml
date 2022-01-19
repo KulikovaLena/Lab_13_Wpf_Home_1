@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:Lab_9_Wpf_Home_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
+    <!--<Window.Resources>
+        <ResourceDictionary Source="DictionarySize.xaml"/>
+        <ResourceDictionary Source="DictionaryFont.xaml"/>
+    </Window.Resources>-->
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
@@ -35,18 +39,19 @@
         </Menu>
         <ToolBarTray Grid.Row="2" Style="{DynamicResource WindowStyle}">
             <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}">
-                <ComboBox x:Name="fontFamily" Margin="5" Padding="5" SelectedIndex="0" Width="200" Style="{DynamicResource WindowStyle}">
-                    <ComboBoxItem Tag="Arial">Arial</ComboBoxItem>
-                    <ComboBoxItem Tag="Times New Roman">Times New Roman</ComboBoxItem>
-                    <ComboBoxItem Tag="Verdana">Verdana</ComboBoxItem>
-                    <ComboBoxItem Tag="Gotic">Gotic</ComboBoxItem>
-                </ComboBox>
-                <ComboBox x:Name="fontSize" Margin="5" Padding="5" SelectedIndex="2" Width="50" Style="{DynamicResource WindowStyle}">
-                    <ComboBoxItem Tag="12">12</ComboBoxItem>
-                    <ComboBoxItem Tag="14">14</ComboBoxItem>
-                    <ComboBoxItem Tag="16">16</ComboBoxItem>
-                    <ComboBoxItem Tag="18">18</ComboBoxItem>
-                </ComboBox>
+                <ComboBox x:Name="fontFamily" 
+                          ItemsSource="{StaticResource Font}"
+                          Margin="5" 
+                          Padding="5" 
+                          SelectedIndex="0" 
+                          Width="200" 
+                          Style="{DynamicResource WindowStyle}"/>
+                <ComboBox x:Name="fontSize" 
+                          ItemsSource="{StaticResource Size}"
+                          Margin="5" Padding="5" 
+                          SelectedIndex="2" 
+                          Width="50" 
+                          Style="{DynamicResource WindowStyle}"/>
             </ToolBar>
             <ToolBar Margin="5" Padding="5" Style="{DynamicResource ToolBarStyle}">
                 <Button Click="Button_Click" Style="{DynamicResource ButtonStyle}">
@@ -70,8 +75,8 @@
             </ToolBar>
         </ToolBarTray>
         <TextBox x:Name="textBox" 
-                 FontFamily="{Binding ElementName=fontFamily, Path=SelectedItem.Tag}" 
-                 FontSize="{Binding ElementName=fontSize, Path=SelectedItem.Tag}"
+                 FontFamily="{Binding Source={StaticResource Font}, Path=FontFamily}"
+                 FontSize="{Binding Source={StaticResource Size}, Path=FontSize}"
                  Grid.Row="3" Margin="5" Padding="5" TextWrapping="Wrap" AcceptsReturn="True"  Style="{DynamicResource TextBoxStyle}">
         </TextBox>
     </Grid>
