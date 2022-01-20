@@ -129,22 +129,22 @@ namespace Lab_9_Wpf_Home_1
 
         //8
 
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            object fontName = (sender as ComboBox).SelectedItem as string;
-            if (textBox != null)
-            {
-                textBox.FontFamily = new FontFamily((string)fontName);
-            }
-        }
-        private void ComboBox_SizeChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem as string);
-            if (textBox != null)
-            {
-                textBox.FontSize = fontSize;
-            }
-        }
+        //private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        //{
+        //    object fontName = (sender as ComboBox).SelectedItem as string;
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontFamily = new FontFamily((string)fontName);
+        //    }
+        //}
+        //private void ComboBox_SizeChanged_1(object sender, SelectionChangedEventArgs e)
+        //{
+        //    double fontSize = Convert.ToDouble((sender as ComboBox).SelectedItem as string);
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontSize = fontSize;
+        //    }
+        //}
 
         private void RadioButton_Checked_2(object sender, RoutedEventArgs e)
         {

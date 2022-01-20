@@ -6,10 +6,6 @@
         xmlns:local="clr-namespace:Lab_9_Wpf_Home_1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
-    <!--<Window.Resources>
-        <ResourceDictionary Source="DictionarySize.xaml"/>
-        <ResourceDictionary Source="DictionaryFont.xaml"/>
-    </Window.Resources>-->
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
@@ -75,8 +71,8 @@
             </ToolBar>
         </ToolBarTray>
         <TextBox x:Name="textBox" 
-                 FontFamily="{Binding Source={StaticResource Font}, Path=FontFamily}"
-                 FontSize="{Binding Source={StaticResource Size}, Path=FontSize}"
+                 FontFamily="{Binding ElementName=fontFamily, Path=SelectedItem}"
+                 FontSize="{Binding ElementName=fontSize, Path=SelectedItem}"
                  Grid.Row="3" Margin="5" Padding="5" TextWrapping="Wrap" AcceptsReturn="True"  Style="{DynamicResource TextBoxStyle}">
         </TextBox>
     </Grid>
